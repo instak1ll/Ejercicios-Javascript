@@ -1,0 +1,32 @@
+form {
+  width: 100%;
+  max-width: 250px;
+  text-align: center;
+  border: solid 1px #000000;
+  padding-bottom: 10px;
+  margin: auto;
+  background: #fafafa;
+}
+input[type=textfield] {
+    width:75%;
+    padding: 8px 16px;
+    font-size: 16px;
+    margin: 8px 0;
+    border-radius: 1px;
+    text-align: right;
+    color: #333;
+    background: #ccc;
+}
+input[type=button], input[type=reset] {
+    background-color: #858585;
+    color: white;
+    padding: 8px 16px;
+    font-size: 16px;
+    min-width: 20%;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+input[type=button]:hover, input[type=reset]:hover {
+  background-color: #333;
+}

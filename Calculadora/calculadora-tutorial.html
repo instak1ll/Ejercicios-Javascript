@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <LINK REL="stylesheet" TYPE="text/css" HREF="estiloscalculadoratutorial.css">
+
+<script>
+var cifra="";
+var acumulado=0;
+var p_operacion=true;
+var sumar=false;
+var restar=false;
+function display_numeros(numero){
+	document.getElementById("display").value=cifra+numero;
+	cifra=document.getElementById("display").value;
+}
+function suma(){
+	if(restar){
+		acumulado=acumulado-parseInt(cifra);
+		document.getElementById("display").value=acumulado;
+	}else{
+	acumulado=acumulado+parseInt(cifra);
+	document.getElementById("display").value=acumulado;
+	}
+	cifra="";
+	sumar=true;
+	restar=false;
+	p_operacion=false;
+}
+function resta(){
+	if(p_operacion==false){
+	if(sumar){
+		acumulado=acumulado+parseInt(cifra);
+		document.getElementById("display").value=acumulado;
+	}else{
+	acumulado=acumulado-parseInt(cifra);
+	document.getElementById("display").value=acumulado;
+	}
+}else{
+	acumulado=parseInt(cifra);
+	p_operacion=false;
+}
+	cifra="";
+	sumar=false;
+	restar=true;
+}
+function resultado(){
+	if(sumar){
+		document.getElementById("display").value=acumulado+parseInt(cifra);
+	}else if(restar){
+		document.getElementById("display").value=acumulado-parseInt(cifra);
+	}
+	acumulado=parseInt(document.getElementById("display").value);
+	cifra=0;
+}
+</script>
+
+</head>
+
+<form>
+<h2>Calculadora</h2>
+<input type="textfield" id="display">
+<script>document.getElementById("display").value="0";</script>
+<br>
+<input type="button" value="1" onClick="display_numeros(1)">
+<input type="button" value="2" onClick="display_numeros(2)">
+<input type="button" value="3" onClick="display_numeros(3)">
+<input type="button" value="+" onClick="suma()">
+<br>
+<input type="button" value="4" onClick="display_numeros(4)">
+<input type="button" value="5" onClick="display_numeros(5)">
+<input type="button" value="6" onClick="display_numeros(6)">
+<input type="button" value="-" onClick="resta()">
+<br>
+<input type="button" value="7" onClick="display_numeros(7)">
+<input type="button" value="8" onClick="display_numeros(8)">
+<input type="button" value="9" onClick="display_numeros(9)">
+<input type="button" value="*" onClick="display_numeros()">
+<br>
+<input type="button" value="0" onClick="display_numeros(0)">
+<input type="reset"  value="c" onClick="display_numeros(c)">
+<input type="button" value="/" onClick="display_numeros(/)">
+<input type="button" value="=" onClick="resultado()">
+</form>
